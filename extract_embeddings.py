@@ -31,7 +31,7 @@ total = 0
 # loop over the image paths
 for (i, imagePath) in enumerate(imagePaths):
 	# extract the person name from the image path
-	if (i%1 == 0):
+	if (i%1000 == 0):
 		print("Processing image {}/{}".format(i, len(imagePaths)))
 	name = imagePath.split(os.path.sep)[-2]
 
@@ -48,7 +48,6 @@ for (i, imagePath) in enumerate(imagePaths):
 	# apply OpenCV's deep learning-based face detector to localize faces in the input image
 	detector.setInput(imageBlob)
 	detections = detector.forward()
-
 	# ensure at least one face was found
 	if len(detections) > 0:
 		# we're making the assumption that each image has only ONE face, so find the bounding box with the largest probability
