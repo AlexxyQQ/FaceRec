@@ -1,7 +1,6 @@
 
 import time
 import cv2
-import dlib
 import sys
 import logging as log
 import datetime as dt
@@ -23,9 +22,10 @@ while True:
     # Capture image-by-image
     ret, image = video_capture.read()
    
-    if image_count <= 10000: 
-        cv2.imwrite('dataset/aayush/{}.jpg'.format(image_count), image)
-    
+    if image_count <= 10: 
+        cv2.imwrite('dataset/applex/{}.jpg'.format(image_count), image)
+    if image_count >= 10:
+        print("Done")
     
     
     image_count += 1    
@@ -44,5 +44,5 @@ while True:
 video_capture.release()
 cv2.destroyAllWindows()
 
-if image_count >= 10000:
-    print("Done")
+if image_count >= 10:
+    sys.exit()

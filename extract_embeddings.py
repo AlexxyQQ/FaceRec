@@ -31,10 +31,10 @@ total = 0
 # loop over the image paths
 for (i, imagePath) in enumerate(imagePaths):
 	# extract the person name from the image path
-	if (i%1000 == 0):
+	if (i%250 == 0):
 		print("Processing image {}/{}".format(i, len(imagePaths)))
-	name = imagePath.split(os.path.sep)[-2]
-
+	name = imagePath.split(os.path.sep)[-1].split("-")[1].split(".")[0]
+ 
 	# load the image, resize it to have a width of 600 pixels (while maintaining the aspect ratio), and then grab the image dimensions
 	image = cv2.imread(imagePath)
 	image = imutils.resize(image, width=600)
